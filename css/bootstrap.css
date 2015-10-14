@@ -7062,3 +7062,17 @@ a.list-group-item-danger.active:focus {
 .popover {
   color: #2c3e50;
 }
+div#address-box{
+  background:black;
+  height:30%;
+}
+#register-button{
+  background-color: #e08e0b;
+}
+
+select:required:invalid {
+  color: gray;
+}
+option[value=""][disabled] {
+  display: hidden;
+}
