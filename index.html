@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <button id="register-button" onClick="window.location='register.html';" class="btn btn-warning btn-lg">REGISTER</button>
+                        <button id="register-button" onClick="window.location='register.php';" class="btn btn-warning btn-lg">REGISTER</button>
                     </li>
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -127,6 +127,8 @@
                                                         hours = parseInt(seconds_left / 3600);
                                                         seconds_left = seconds_left % 3600;
 
+                                                        hours = hours + 9;
+
                                                         minutes = parseInt(seconds_left / 60);
                                                         seconds = parseInt(seconds_left % 60);
 
@@ -168,16 +170,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 ">
-                    <p><h3>Alice 3 (High School)</h3><br/>Alice is an innovative 3D programming environment that makes it easy to create an animation for telling story, playing an interactive game, or a video to share on the web. Alice is a teaching tool for introductory computing. It uses 3D graphics and drag-and-drop interface to facilitate a more engaging, less frustrating first programming experience.</p>
-                </div>
+
                 <div class="col-lg-4">
-                    <p><h3>Scratch (PUC)</h3><br/>Scratch is an educational programming language and multimedia tool that can be used by pupils, teachers and parents for a range of educational and entertainment projects from maths and science projects, including simulations and visualisations of experiments, recording lectures with animated presentations, to social sciences animated stories, and interactive art and music. Simple games can be made with it, as well.
+                    <p><h3 align="center">Scratch (High School)</h3><br/>Scratch is an educational programming language and multimedia tool that can be used by pupils, teachers and parents for a range of educational and entertainment projects from maths and science projects, including simulations and visualisations of experiments, recording lectures with animated presentations, to social sciences animated stories, and interactive art and music. Simple games can be made with it, as well.
                     </p>
                 </div>
 
+                <div class="col-lg-4 ">
+                    <p><h3 align="center">Alice 3 (PUC)</h3><br/>Alice is an innovative 3D programming environment that makes it easy to create an animation for telling story, playing an interactive game, or a video to share on the web. Alice is a teaching tool for introductory computing. It uses 3D graphics and drag-and-drop interface to facilitate a more engaging, less frustrating first programming experience.</p>
+                </div>
+
+
                 <div class="col-lg-4">
-                    <p><h3>Rules and Regulations:</h3></p>
+                    <p><h3>Rules and Regulations:</h3></p><br>
                     <ul>
                         <li>2 students make a team in both the competitions.</li>
                         <li>Any number of teams can participate from school/college.</li>
