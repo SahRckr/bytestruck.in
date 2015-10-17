@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
 
+    <link rel="shortcut icon" href="img/favicon.jpg" />
+
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -41,11 +43,29 @@
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
+
+        <script language="JavaScript">
+
+            function autoResize(id){
+                var newheight;
+                var newwidth;
+
+                if(document.getElementById){
+                    newheight = document.getElementById(id).contentWindow.document .body.scrollHeight;
+                    newwidth = document.getElementById(id).contentWindow.document .body.scrollWidth;
+                }
+
+                document.getElementById(id).height = (newheight) + "px";
+                document.getElementById(id).width = (newwidth) + "px";
+}
+
+    </script>
+
     <![endif]-->
 
 </head>
 
-<body id="page-top" class="index">
+<body  id="page-top" class="index">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -213,16 +233,19 @@
 
                 <div class="col-sm-4 portfolio-item">
                     <div class="address-box">
-                        <h3>P.A. College of Engineering, Mangalore</h3>
-                        <p>Nadupadav, Montepadav Post<br/>Kairangala<br/>Mangalore - 574153<br/>Karnataka, INDIA.</p><br/><br/><br/>
+                        <h3>P.A. College of Engineering, Mangaluru</h3>
+                        <p>Nadupadavu, Montepadavu Post<br/>Kairangala<br/>Mangalore - 574153<br/>Karnataka, INDIA.</p><br/><br/><br/>
                         <button onClick="window.location='busroutes.pdf';" class="btn btn-danger btn-lg">BUS ROUTES</button>
                     </div>
                 </div>
 
 
                 <div class="col-sm-8 portfolio-item"></div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.54362015411!2d74.93205069042065!3d12.808108811120071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba350a13025ca43%3A0xdac750c7c787bb86!2sP+A+College+Of+Engineering!5e0!3m2!1sen!2sin!4v1444732274032" width="700px" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
+                <iframe id="iframe-class" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.54362015411!2d74.93205069042065!3d12.808108811120071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba350a13025ca43%3A0xdac750c7c787bb86!2sP+A+College+Of+Engineering!5e0!3m2!1sen!2sin!4v1444732274032" height="500" width="700" scrolling="no" onload="autoResize(iframe1);" frameborder="1.0" style="border:0" allowfullscreen></iframe>
+
+
+
+            </div>
 
             </div>
         </div>
@@ -238,44 +261,47 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
+                <div class="col-lg-32 col-lg-offset-1">
+
+                    <div class="col-sm-3 portfolio-item" border="3px" style="border-left:1px solid;border-top:1px solid;border-bottom:1px solid; background-color:lavender;" >
+                            <div class="col-sm-4 portfolio-item">
+                                <div class="address-box">
+                                    <h3>AKSHAY B.M.</h3>
+                                    <p> <i class="fa fa-phone fa-lg"></i>9895922850</p><br>
+                                    <p style="font-size: 17px"> <a href="mailto:akshaymanjeshwar@gmail.com"><i class="fa fa-envelope fa-lg"></i> akshaymanjeshwar@gmail.com</a></p><br>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-                                <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div class="col-sm-3 portfolio-item" border="3px" style="border-left:1px solid;border-top:1px solid;border-bottom:1px solid; background-color:lavender;" >
+                            <div class="col-sm-4 portfolio-item">
+                                <div class="address-box">
+                                    <h3> MANDEEP <br></h3>
+                                    <p> <br><i class="fa fa-phone fa-lg"></i>9036678093</p><br>
+                                    <p style="font-size: 17px"> <a href="mailto:mandeepmm1@gmail.com"><i class="fa fa-envelope fa-lg"></i>mandeepmm1@gmail.com</a></p><br>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div class="col-sm-3 portfolio-item" border="3px" style="border-left:1px solid;border-top:1px solid;border-bottom:1px solid; background-color:lavender;" >
+                            <div class="col-sm-4 portfolio-item">
+                                <div class="address-box">
+                                    <h3> SHEEJA SHETTY </h3>
+                                    <p> <i class="fa fa-phone fa-lg"></i>9663485444</p><br>
+                                    <p style="color:#2c3e50; font-size: 17px;"> <a href="mailto:sheejashetty@gmail.com"><i class="fa fa-envelope fa-lg"></i>sheejashetty@gmail.com</a></p><br>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div class="col-sm-3 portfolio-item" border="3px" style="border:1px solid; background-color:lavender;" >
+                            <div class="col-sm-4 portfolio-item">
+                                <div class="address-box">
+                                    <h3>SAHIL SATISHKUMAR</h3>
+                                    <p> <i class="fa fa-phone fa-lg"></i>9449513893</p><br>
+                                    <p style="font-size: 17px"> <a href="mailto:hello@sahilsatishkumar.com"><i class="fa fa-envelope fa-lg"></i>hello@sahilsatishkumar.com</a></p><br>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

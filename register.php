@@ -1,10 +1,8 @@
 <?php
 
-    if($_POST)
+    if(!empty($_POST))
     {
         $name1=$_POST['participant1'];
-
-        echo 'successful';
 
         if(!empty($_POST["participant2"])){
         $name2=$_POST["participant2"];
@@ -17,14 +15,17 @@
         $school=$_POST["school"];
         $level=$_POST["level"];
 
-        $string=$name1.",".$name2.",".$email.",".$phone.",".$school.",".$level."\n";
+        $string=$name1."|".$name2."|".$email."|".$phone."|".$school."|".$level."\n";
 
         $file = fopen("database.csv","a+");
         $status=fwrite($file,$string);
         fclose($file);
 
         if($status === false){ header("Location: unsuccessful.html "); }
-        else { header("Location: successful.html"); }
+        else { /*header("Location: successful.html ");*/
+                echo '<script>alert("Registration Successful!");</script>';
+                echo "<p align='center'><br><br><br><br><h4> Registration for $name1's team is complete</h4><p>";
+                }
     }
 ?>
 <!DOCTYPE html>
@@ -80,6 +81,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                                        <a href="#page-top"></a>
+                </li>
                 <li>
                     <button onClick="window.location='index.html';" class="btn btn-info btn-lg">HOME</button>
                 </li>
@@ -100,7 +104,7 @@
 
 
         <div class="col-lg-8 col-lg-offset-2">
-            <form action="registration.php" method="post">
+            <form action="?" method="post">
                 <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                         <label>Team Leader's Name</label>
@@ -127,8 +131,8 @@
 
                 <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
-                        <label>Phone Number of any one team member</label>
-                        <input type="tel" name="phone-number" class="form-control" placeholder="Phone Number" id="phone" required="" data-validation-required-message="Please enter your phone number.">
+                        <label>10 digit valid Phone Number of any one team member</label>
+                        <input type="tel" pattern="^\d{10}$" name="phone-number" class="form-control" placeholder="Phone Number" id="phone" required="" data-validation-required-message="Please enter your phone number.">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>

@@ -1810,7 +1810,7 @@ pre code {
     width: 33.33333333%;
   }
   .col-sm-3 {
-    width: 25%;
+    width: 50%;
   }
   .col-sm-2 {
     width: 16.66666667%;
@@ -7061,10 +7061,6 @@ a.list-group-item-danger.active:focus {
 }
 .popover {
   color: #2c3e50;
-}
-div#address-box{
-  background:black;
-  height:30%;
 }
 #register-button{
   background-color: #e08e0b;
