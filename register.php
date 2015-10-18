@@ -1,5 +1,5 @@
 <?php
-
+    $bodyMail = file_get_contents('mail/mail_index.htm',true);
     if(!empty($_POST))
     {
         $name1=$_POST['participant1'];
@@ -8,7 +8,7 @@
         $name2=$_POST["participant2"];
         }
 
-        else { $name2='nil'; }
+        else { $name2='Not Applicable'; }
 
         $email=$_POST["email"];
         $phone=$_POST["phone-number"];
@@ -17,7 +17,7 @@
 
         $string=$name1."|".$name2."|".$email."|".$phone."|".$school."|".$level."\n";
 
-        $file = fopen("database.csv","a+");
+        $file = fopen("","a+");
         $status=fwrite($file,$string);
         fclose($file);
 
@@ -25,6 +25,59 @@
         else { /*header("Location: successful.html ");*/
                 echo '<script>alert("Registration Successful!");</script>';
                 echo "<p align='center'><br><br><br><br><h4> Registration for $name1's team is complete</h4><p>";
+
+                        require 'mail/PHPMailerAutoload.php';
+
+                        $mail = new PHPMailer;
+
+                        //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+                        $mail->isSMTP();                                      // Set mailer to use SMTP
+                        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                        $mail->Username = 'glug@pace.edu.in';                 // SMTP username
+                        $mail->Password = '';                           // SMTP password
+                        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                        $mail->Port = 587;                                    // TCP port to connect to
+
+                        $mail->setFrom('glug@pace.edu.in','GLUG PACE');
+                        $mail->addAddress($email, $name1);
+                        $mail->addReplyTo('sahilsatishkumar@gmail.com', 'Bytestruck');
+                        $mail->addBCC('sahilsatishkumar@gmail.com');
+
+                        $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+                        $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                        $mail->isHTML(true);                                  // Set email format to HTML
+
+                        $mail->Subject = 'Your REGISTRATION for #Bytestruck2015 is complete';
+                        
+                        $bodyMail = str_replace("tbrname1", $name1, $bodyMail);
+                        $bodyMail = str_replace("tbrname2", $name2, $bodyMail);
+                        $bodyMail = str_replace("tbrphone", $phone, $bodyMail);
+                        $bodyMail = str_replace("tbrschool", $school, $bodyMail);
+                        $bodyMail = str_replace("tbrlevel", $level, $bodyMail);
+
+                        $mail->Body    = $bodyMail;
+                        $mail->AltBody = "Greetings, 
+                            Hello Participant the registration details have been recorded.
+                            Participant 1: $name1
+                            Participant 2: $name2
+                            Phone Number : $phone
+                            School/College and level: $school($level)
+
+                            Let us know if any changes are required.
+
+                            Best Regards,
+                            GLUG PACE";
+
+                        if(!$mail->send()) {
+                            echo 'Message could not be sent.';
+                            echo 'Mailer Error: ' . $mail->ErrorInfo;
+                        } else {
+                            echo "A confirmation mail has been sent to $email";
+                        }
+
+
                 }
     }
 ?>
@@ -150,8 +203,8 @@
                         <br/>
                         <select type="combo-box" name="level" value="Select Education level" class="form-control" id="" required="" data-validation-required-message="Please enter your name.">
                             <option style="display:none;" value="" disabled selected>Please select Education level</option>
-                            <option value="school">High School</option>
-                            <option value="puc">PUC/(+1/+2)</option>
+                            <option value="High School">High School</option>
+                            <option value="PUC">PUC or (+1/+2)</option>
                         </select>
                         <p class="help-block text-danger"></p>
                     </div>
@@ -177,9 +230,9 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col col-md-4">
-                    <h3>Location</h3>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-                </div>
+                        <h3>About <a href="http://glugpace.in/index.php/about-bytestruck/">BYTESTRUCK</a></h3>
+                        <p>Read more about<br>Bytestruck here.</p>
+                    </div>
                 <div class="footer-col col-md-4">
                     <h3>Around the Web</h3>
                     <ul class="list-inline">
