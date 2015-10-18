@@ -1,1 +1,1 @@
-<div class="rows"><ul class="list-inline"><li><div style="margin-left:50px; color:#2c3e50;"><h1>' + days +  '<br/><b>Days</b></h1></div></li><li><div style="margin-left:50px; color:#2c3e50;"><h1>   ' + hours + '<br/><b>Hours</b></h1></div></li><li><div style="margin-left:50px; color:#2c3e50;"><h1>' + minutes + ' <br/><b>Minutes</b></h1></div></li><li><div style="margin-left:50px; color:#2c3e50;"><h1>' + seconds + ' <br/><b>Seconds</b></h1></div></li></ul></div>
+Codes and resources to bytestruck 2015's official website.
